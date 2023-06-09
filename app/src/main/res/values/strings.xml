@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ListDetail</string>
+    <string name="detail_button">Pokaż przepis</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cocktail_name">Nazwa drinka</string>
+    <string name="cocktail_recipe">"Składniki i sposób przygotowania "</string>
+    <string name="fragment_timer_time">00:00:00</string>
+    <string name="fragement_timer_start_button">start</string>
+    <string name="fragment_timer_set_button">set</string>
+    <string name="fragment_timer_start_button">start</string>
+    <string name="fragment_timer_stop_button">stop</string>
+    <string name="fragment_timer_przerwij_button">przerwij</string>
+</resources>

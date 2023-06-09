@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".TimerFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <NumberPicker
+            android:id="@+id/numpicker_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/firstColon"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/firstColon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        app:layout_constraintStart_toEndOf="@id/numpicker_hours"
+        app:layout_constraintEnd_toStartOf="@id/numpicker_minutes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/numpicker_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toStartOf="@id/secondColon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/firstColon"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/secondColon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"
+        app:layout_constraintEnd_toStartOf="@id/numpicker_seconds"
+        app:layout_constraintStart_toEndOf="@id/numpicker_minutes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/numpicker_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/secondColon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_height="wrap_content"
+android:layout_width="match_parent"
+android:padding="10dp">
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/setButt"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_width="wrap_content"
+    android:text="@string/fragment_timer_set_button"
+    app:iconTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/startButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_weight="1" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/startButton"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_width="wrap_content"
+    android:text="@string/fragment_timer_start_button"
+    app:iconTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/stopButton"
+    app:layout_constraintStart_toEndOf="@id/setButt"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.8"
+    app:layout_constraintVertical_weight="1" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/stopButton"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="@string/fragment_timer_stop_button"
+    app:iconTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/przerwijButton"
+    app:layout_constraintStart_toEndOf="@+id/startButton"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_weight="1" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/przerwijButton"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:layout_width="wrap_content"
+    android:text="@string/fragment_timer_przerwij_button"
+    app:iconTint="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/stopButton"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_weight="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
