@@ -33,8 +33,9 @@ class CocktailListFragment : Fragment(R.layout.fragment_cocktail_list),OnItemCli
     }
 
     override fun onItemClick(position: Int) {
-            val route = Cocktails.list[position].name
-            val description =  Cocktails.list[position].method
-            replaceFragment(CocktailDetailFragment.newInstance(route, description))
+            val name = Cocktails.list[position].name
+            val method =  Cocktails.list[position].method
+            val ingredients =  Cocktails.list[position].ingredients
+            replaceFragment(CocktailDetailFragment.newInstance(name, ingredients, method))
     }
 }

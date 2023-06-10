@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16.dp">
-
-    <TextView
-        android:id="@+id/fragment_cocktail_detail_cocktail_name"
+>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cocktail_name"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16.dp">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?colorOnBackground" />
+        <TextView
+            android:id="@+id/fragment_cocktail_detail_cocktail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cocktail_name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/fragment_cocktail_detail_cocktail_igredients_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cocktail_ingredients" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8.dp"
+            android:layout_marginBottom="8.dp"
+            android:background="?colorOnBackground" />
 
-    <TextView
-        android:id="@+id/fragment_cocktail_detail_cocktail_igredients"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cocktail_ingredients"/>
+        <TextView
+            android:id="@+id/fragment_cocktail_detail_cocktail_igredients_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocktail_ingredients" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?colorOnBackground" />
+        <TextView
+            android:id="@+id/fragment_cocktail_detail_cocktail_igredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocktail_ingredients" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_cocktail_detail_timer_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8.dp"
+            android:layout_marginBottom="8.dp"
+            android:background="?colorOnBackground" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_cocktail_detail_timer_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?colorOnBackground" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8.dp"
+            android:layout_marginBottom="8.dp"
+            android:background="?colorOnBackground" />
 
-    <TextView
-        android:id="@+id/fragment_cocktail_detail_cocktail_method_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cocktail_method"/>
+        <TextView
+            android:id="@+id/fragment_cocktail_detail_cocktail_method_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocktail_method" />
 
-    <TextView
-        android:id="@+id/fragment_cocktail_detail_cocktail_method"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cocktail_method"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/fragment_cocktail_detail_cocktail_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cocktail_method" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
