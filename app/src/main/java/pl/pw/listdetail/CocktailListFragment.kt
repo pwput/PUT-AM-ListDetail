@@ -1,90 +1,40 @@
 package pl.pw.listdetail
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.ListFragment
-import pl.pw.listdetail.domain.Coctails
+import androidx.recyclerview.widget.RecyclerView
+import pl.pw.listdetail.domain.Cocktails
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class CocktailListFragment : Fragment(R.layout.fragment_cocktail_list),OnItemClickListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CocktailListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CocktailListFragment : ListFragment() {
-    internal interface Listener {
-        fun itemClicked(id: Long)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return LayoutInflater.from(container?.context).inflate(R.layout.fragment_cocktail_list, container, false)
     }
 
-    private var listner: Listener? = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val recyclerView = view.findViewById<RecyclerView>(R.id.fragment_cocktail_list_recycler_view)
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listner = context as Listener
+        val adapter = CocktailAdapter(Cocktails.list, this)
+
+        recyclerView.adapter = adapter
+    }
+    private fun replaceFragment(fragment: Fragment) {
+        val smallestWidth = resources.configuration.smallestScreenWidthDp
+        val fragmentTransaction = parentFragmentManager.beginTransaction()
+
+        if (smallestWidth < 720)
+            fragmentTransaction.replace(R.id.activity_main_fragment_container, fragment)
+        else
+            fragmentTransaction.replace(R.id.activity_main_detail_fragment, fragment)
+        fragmentTransaction.commit()
     }
 
-    override fun onListItemClick(l: ListView, v: View, position: Int, id: Long) {
-        listner?.itemClicked(id)
-    }
-
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        val names = mutableListOf<String>()
-        for (item in Coctails.list)
-            names.add(item.name)
-        val adapter = ArrayAdapter(
-            inflater.context,
-            android.R.layout.simple_list_item_1,
-            names,
-        )
-        listAdapter = adapter
-
-        // Inflate the layout for this fragment
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CocktailListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CocktailListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onItemClick(position: Int) {
+            val route = Cocktails.list[position].name
+            val description =  Cocktails.list[position].method
+            replaceFragment(CocktailDetailFragment.newInstance(route, description))
     }
 }

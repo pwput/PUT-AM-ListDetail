@@ -6,50 +6,50 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import pl.pw.listdetail.domain.Coctails
 
-class CocktailDetailFragment : Fragment() {
-    var cocktailId: Long? = null
+class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
+    companion object {
+        fun newInstance(route: String, description: String): CocktailDetailFragment {
+            val fragment = CocktailDetailFragment()
+            val args = Bundle()
+            args.putString("route", route)
+            args.putString("description", description)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return LayoutInflater.from(container?.context)
+            .inflate(R.layout.fragment_cocktail_detail, container, false)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val cocktailName = view.findViewById<TextView>(R.id.fragment_cocktail_detail_cocktail_name)
+        val cocktailIgredients = view.findViewById<TextView>(R.id.fragment_cocktail_detail_cocktail_igredients)
+        val cocktailMethod = view.findViewById<TextView>(R.id.fragment_cocktail_detail_cocktail_method)
+//        val textView3 = view.findViewById<TextView>(R.id.detail_textview3)
+//        val textView4 = view.findViewById<TextView>(R.id.detail_textview4)
+        cocktailName.text = this.arguments?.getString("route")
+        cocktailIgredients.text = this.arguments?.getString("description")
+
+//        val sharedTime = requireActivity().getSharedPreferences("com.example.listdetail.shared",0)
+//        textView3.text = "Best time: ${sharedTime.getString(textView.text.toString(), "None")}"
+//        textView4.text = "Last time: ${sharedTime.getString("${textView.text.toString()} last", "None")}"
+
         if (savedInstanceState == null) {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
                 add<TimerFragment>(
-                    R.id.timer_container,
-                    "SS"
+                    R.id.fragment_cocktail_detail_timer_container,
+                    "SS",
+                    Bundle().apply { putString("route", cocktailName.text.toString()) }
                 )
             }
         }
-        else {
-            cocktailId = savedInstanceState.getLong("cocktailId")
-        }
-    }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putLong("cocktailId", cocktailId!!)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        view?.let {
-            val title = requireView().findViewById<TextView>(R.id.textTitle)
-            val cocktail = Coctails.list[cocktailId!!.toInt()]
-            title.text = cocktail.name
-            val description = requireView().findViewById<TextView>(R.id.textDescription)
-            description.text = cocktail.recipe
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cocktail_detail, container, false)
     }
 }

@@ -2,24 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16.dp">
 
     <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="wrap_content"
+        android:id="@+id/fragment_cocktail_detail_cocktail_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/cocktail_name"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?colorOnBackground" />
+
+    <TextView
+        android:id="@+id/fragment_cocktail_detail_cocktail_igredients_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cocktail_ingredients" />
+
+    <TextView
+        android:id="@+id/fragment_cocktail_detail_cocktail_igredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cocktail_ingredients"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?colorOnBackground" />
+
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/timer_container"
+        android:id="@+id/fragment_cocktail_detail_timer_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?colorOnBackground" />
+
     <TextView
-        android:id="@+id/textDescription"
-        android:layout_width="wrap_content"
+        android:id="@+id/fragment_cocktail_detail_cocktail_method_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cocktail_recipe" />
+        android:text="@string/cocktail_method"/>
+
+    <TextView
+        android:id="@+id/fragment_cocktail_detail_cocktail_method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cocktail_method"/>
 </LinearLayout>
