@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.NumberPicker
 import android.widget.TextView
 import android.widget.Toast
@@ -20,10 +21,10 @@ class TimerFragment : Fragment(R.layout.fragment_timer) {
     private lateinit var timeViewH: NumberPicker
     private lateinit var timeViewM: NumberPicker
     private lateinit var timeViewS: NumberPicker
-    private lateinit var startButton: Button
-    private lateinit var setButton: Button
-    private lateinit var stopButton: Button
-    private lateinit var resetButton: Button
+    private lateinit var startButton: ImageButton
+    private lateinit var setButton: ImageButton
+    private lateinit var stopButton: ImageButton
+    private lateinit var resetButton: ImageButton
 
     private lateinit var serviceIntent: Intent
 

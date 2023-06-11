@@ -36,6 +36,7 @@ class CocktailListFragment : Fragment(R.layout.fragment_cocktail_list),OnItemCli
             val name = Cocktails.list[position].name
             val method =  Cocktails.list[position].method
             val ingredients =  Cocktails.list[position].ingredients
-            replaceFragment(CocktailDetailFragment.newInstance(name, ingredients, method))
+            val imageRes = Cocktails.list[position].imgResId
+            replaceFragment(CocktailDetailFragment.newInstance(name, ingredients, method,imageRes))
     }
 }
