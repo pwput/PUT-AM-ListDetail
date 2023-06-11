@@ -53,15 +53,9 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
         cocktailName.text = this.arguments?.getString(ARG_NAME)
         cocktailMethod.text = this.arguments?.getString(ARG_METHOD)
         cocktailIngredients.text = this.arguments?.getString(ARG_INGREDIENTS)
-
         imageRes = arguments?.getInt(ARG_IMAGE)
         imageRes?.let { cocktailImage.setImageResource(it) }
-
         fab.setOnClickListener { onFabClick() }
-
-//        val sharedTime = requireActivity().getSharedPreferences("com.example.listdetail.shared",0)
-//        textView3.text = "Best time: ${sharedTime.getString(textView.text.toString(), "None")}"
-//        textView4.text = "Last time: ${sharedTime.getString("${textView.text.toString()} last", "None")}"
 
         if (savedInstanceState == null) {
             parentFragmentManager.commit {
@@ -82,8 +76,12 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
     }
 
     private fun startAnimation(view: TextView){
-        val startColor =         MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorPrimaryDark, requireContext().getColor(R.color.black))
-        val endColor =         MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorOnBackground, requireContext().getColor(R.color.black))
+        val startColor =
+            MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorPrimaryDark,
+                requireContext().getColor(R.color.black))
+        val endColor =
+            MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorOnBackground,
+                requireContext().getColor(R.color.black))
 
         ObjectAnimator.ofArgb(view,"textColor", startColor, endColor).apply { repeatCount = 4
         repeatMode = ValueAnimator.REVERSE

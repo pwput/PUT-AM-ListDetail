@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import pl.pw.listdetail.domain.Cocktail
 
-class CocktailAdapter(private val cocktailList: List<Cocktail>, private val itemClickListener: OnItemClickListener): Adapter<CocktailAdapter.ViewHolder>() {
+class CocktailAdapter(private val cocktailList: List<Cocktail>, private val itemClickListener: OnItemClickListener):
+    Adapter<CocktailAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_cocktail_list_recyclerview_item,parent,false))
