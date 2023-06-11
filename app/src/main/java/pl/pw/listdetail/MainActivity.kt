@@ -16,4 +16,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
     }
+
+    override fun onBackPressed() {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.activity_main_fragment_container, CocktailListFragment())
+        fragmentTransaction.commit()
+    }
 }
